@@ -5,7 +5,6 @@
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 \usepackage{csquotes}
-\usepackage{minted}
 \usepackage{apacite}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
@@ -15,6 +14,8 @@
     colorlinks=false,
     urlcolor=black
 }
+\usepackage{minted}
+\usemintedstyle{colorful}
 
 % Header
 \pagestyle{fancy}
@@ -109,13 +110,13 @@ Over the course of the project, we used various \emph{Quality Assurance} strateg
      \item Annabel $\longrightarrow$ Business Analyst (BA) \& Metrics collector
  \end{itemize}
  
-The PM is responsible for making sure that the team sticks to the processes and tools mentioned in this plan. The PM also has the responsibility of making sure that every team member has work to do and are aware of what this work consists of. The developer is responsible for writing the game code and unit tests for said code. \\
+The PM is responsible for making sure that the team sticks to the processes and tools mentioned in this plan. The PM also has the responsibility of ensuring that every team member has work to do and are aware of what this work consists of. The developer is responsible for writing the game code and unit tests for said code. \\
  
 The BA defines the requirements for the game and plays a role in ensuring that such requirements are met. The BA has to consider and represent the user's best interests. Metrics collection involves using an IDE plugin to obtain various code metrics such as `number of lines of code'. This data must then be collected, formatted and presented in a way that provides useful insights for future development. \\
  
 The QA manually tests the game, using the requirements as a baseline for determining whether or not the product quality is satisfactory. The QA should also define test plans and is free to undertake `exploratory testing.' This involves trying different things out that may not be on the requirements --- the purpose of which is to find any defects that may otherwise be missed. \\
 
-Agile's most natural form involves two-week sprint cycles with more than one story (chunk of work) for each sprint. Sticking to a two or even a one week cycle at University is unlikely to be successful. This is due to the nature of University work; one week a student may be busy with deadlines, another week they may be free. It is clear that --- for the purpose of this project --- agile can't be adopted in its most well-known form. The solution to this problem is not to ditch the methodology altogether, but to adapt it to our needs. Instead of working in timed sprints, we will base our work around the stories. The total work will probably amount to three or four stories. Each story will be treated like it is an Agile-like Sprint in the respect that there will be a BA/QA/DEV at the beginning, and a retrospective at the end. More information about the project-level processes and tools used will be outlined in the later in this plan.
+Agile's most natural form involves two-week sprint cycles with more than one story (chunk of work) for each sprint. Sticking to a two or even a one week cycle at University is unlikely to be successful. This is due to the nature of University work; one week a student may be busy with deadlines, another week they may be free. It is clear that --- for the purpose of this project --- agile can't be adopted in its most well-known form. The solution to this problem is not to ditch the methodology altogether, but to adapt it to our needs. Instead of working in timed sprints, we will base our work around the stories. The total work will probably amount to three or four stories. Each story will be treated like it is an Agile-like Sprint in the respect that there will be a BA/QA/DEV meeting at the beginning, and a \emph{Retrospective} at the end. More information about the project-level processes and tools used will be outlined in the later in this plan.
 
 \newpage
 
@@ -126,12 +127,12 @@ Agile's most natural form involves two-week sprint cycles with more than one sto
 The above flow represents a whole Sprint, or Story. 
 
 \begin{enumerate}
-    \item \textbf{Requirements planning} is done by the BA. It involves creating user stories aimed at making it clear to the developer what would constitute a \emph{quality} end-product. Requirements will be written for each sprint. The requirements from Sprint 1 may or may not still be relevant in Sprint 2 or 3. The ability to change requirements is one of the advantages of using an Agile-influenced approach.
+    \item \textbf{Requirements planning} is done by the BA. It involves defining both functional and non-functional requirements aimed at making it clear to the developer what would constitute a \emph{quality} end-product. Requirements will be written for each sprint. The requirements from Sprint 1 may or may not still be relevant in Sprint 2 or 3. The ability to change requirements is one of the advantages of using an Agile-influenced approach.
     \item \textbf{BA/QA/DEV} is a meeting format used by some Agile teams (it is also known as a `Three Amigos' meeting). In our case, this meeting will involve all three team members. The purpose of the meeting is to make sure everyone is on the same page regarding what is expected for the Sprint. A topic of conversation might be the \emph{requirements} --- making sure that everyone understands them or considering whether or not they ought to be changed. This meeting provides a apt opportunity to create the Development tasks and Test plans for the subsequent Sprint.
     \item \textbf{Development} is simply the programming segment of the Sprint. The development tasks should be broken down for each story so that no task has an estimate of more than a day. There will likely be three to four development tasks for each Sprint.
     \item \textbf{White-box testing} is a style of testing where the internal structure of the application is known to the tester. In our case, this will most likely take the form of unit tests which is why this occurs before code reviews and after development. 
     \item \textbf{Code reviews} are a way to ensure that code is good quality. Code might be bad quality if the coding conventions being used are not followed, or if the Developer simply makes any careless mistakes in their code. It is important to have a second-pair of eyes look at the code to spot any bad practices or errors.
-    \item \textbf{Black-box testing} is a style of testing where the tester doesn't know the internal details of the application. In our case, this will take the form of \emph{acceptance testing} and \emph{exploratory testing}. Note how this particular task has a connection with the earlier `Development' task. This specific flow will occur if a defect is found during testing. In this scenario, the QA will have to raise the defect and the Developer will have to fix it.
+    \item \textbf{Black-box testing} is a style of testing where the tester doesn't know the internal details of the application. In our case, this will take the form of \emph{acceptance testing} and \emph{exploratory testing}. Note how this particular task has a connection with the earlier `Development' task. This specific flow will occur if a defect is found during testing. In this scenario, the QA will have to raise the defect and the Developer will be tasked with fixing it.
     \item \textbf{Metrics recording} will be done towards the end of the Sprint. The data will be reviewed in the retrospective/FTR at the end of the Sprint. 
     \item \textbf{Retrospective/FTR} will occur at the end of the Sprint. There will only be one Formal Technical Review (FTR) which will be documented. The rest of the Sprints will follow a standard \emph{Retrospective} template. Namely, each group member will have to answer three questions: 
     \begin{itemize}
@@ -145,14 +146,14 @@ The above flow represents a whole Sprint, or Story.
 \newpage
  
 \subsection{Tools, Methods, \& Storage}
- We will use Trello as our main project-management software. Trello will contain all of the tasks and there should be coloured labels that make it clear which team member each task is intended for. Trello is an intuitive tool that all group members have experience with. Trello can be used to store resource, such as the process flow diagram given above. The metrics will be recorded using an IDE but stored in a spreadsheet - preferably Google Sheets for optimal accessibility. This spreadsheet can be linked to Trello so that all relevant resources can be in one place. As for our Version Control System (VCS), we will use GitHub - mainly due to its familiarity.
+ We will use Trello as our main project-management software. Trello will contain all of the tasks and there should be coloured labels that make it clear which team member each task is intended for. Trello is an intuitive tool that all group members have experience with. Trello can be used to store resources, such as the process flow diagram given above. The metrics will be recorded using an IDE but stored in a spreadsheet - preferably Google Sheets for optimal accessibility. This spreadsheet can be linked to Trello so that all relevant resources can be in one place. As for our Version Control System (VCS), we will use GitHub - primarily due to its familiarity.
  
 \subsection{Standards and Practices}
 \label{practices}
-We will try to adhere to the \underline{\href{https://google.github.io/styleguide/javaguide.html}{Google Java Style Guide}}. This coding convention lays out several good and bad practices including those which relate to: constants usage, class naming, variable namingm and brace usage. The style guide also offers some advice on formatting \emph{JavaDocs}. We will aim to have JavaDocs on every method --- regardless of complexity --- as doing so can greatly enhance readability.
+We will try to adhere to the \underline{\href{https://google.github.io/styleguide/javaguide.html}{Google Java Style Guide}}. This coding convention lays out several good and bad practices including those which relate to: constants usage, class naming, variable naming and brace usage. The style guide also offers some advice on formatting \emph{JavaDocs}. We will aim to have JavaDocs on every method --- regardless of complexity --- as doing so can greatly enhance readability.
 \section{Project Management Tool Usage}
 
-We used Trello for much of our information storage and communication. We liked the idea of having one web-page which would act as a central hub for the project. The following page contains a screenshot of our Trello board, post project. Notice how the layout of each story closely mirrors the project process-flow diagram included earlier in this report.
+We used Trello for much of our information storage and communication. We liked the idea of having one web-page which would act as a central hub for the project. The following page contains a screenshot of our Trello board, post project. Notice how the structure of each story closely mirrors that of the project process-flow diagram included in the QA plan.
 
 % \includegraphics[scale=0.6]{trello1.png}
 \noindent\makebox[\textwidth]{\includegraphics[scale=0.7]{images/trello1.png}}
@@ -165,7 +166,7 @@ The tickets were colour-coded in a way as to make it obvious who the task was in
 
 \section{Requirements}
 
-As mentioned in the SQA plan, most of the requirements were Sprint-specific and defined at the beginning of the Sprint. The main reason for this is to allow for the change of requirements if necessary. There were, however some generic requirements which were always unlikely to change:
+As mentioned in the SQA plan, most of the requirements were Sprint-specific and defined at the beginning of the Sprint. The main reason for this is to allow for the change of requirements if necessary. There were, however, some generic requirements which were always unlikely to change:
 
 \subsection{Functional Requirements}
 
@@ -185,7 +186,7 @@ As mentioned in the SQA plan, most of the requirements were Sprint-specific and 
     \item There should be no or minimal delay between user input and game response i.e. a mouseclick.
 \end{itemize}
 
-In addition to these generic requirements, we also included more specific story-level requirements. These were stored in the description of the `Requirements' task in Trello.
+In addition to these generic requirements, we also included more specific story-level requirements. These were stored in the description of the `Requirements' tasks in Trello.
 
 \subsection{Story 1}
 
@@ -248,8 +249,8 @@ Our metrics were updated on a continual basis. Most of the metrics we created we
 \end{center}
 
 \begin{itemize}
-    \item Lines of Product Code $\longrightarrow$ The number of lines of Java game code. This figure does not any code from the test classes or build scripts. We included this because it provides a rough estimate for how large a story is - at least in terms of features.
-    \item Lines of Test code $\longrightarrow$ The number of lines of JUnit code. We included this statistic to gauge how much effort is being spent on unit testing throughout the project.
+    \item Lines of Product Code $\longrightarrow$ The number of lines of Java game code. This figure does not include any code from the test classes or build scripts. We included this because it provides a rough estimate for how large a story is - at least in terms of features.
+    \item Lines of Test code $\longrightarrow$ The number of lines of JUnit code. We included this statistic to gauge how much effort was being spent on unit testing throughout the project.
     \item Line Coverage $\longrightarrow$ The percentage of lines that are executed during a complete run of the game. If the value is low, it suggests that there are a lot of methods that exist in the application which aren't being executed - and therefore should be omitted. 
     \item Methods with JavaDocs $\longrightarrow$ We comitted to include JavaDocs on every method in our \underline{\hyperref[practices]{plan}}. This metric exists to alert us if this commitment is ever avoided.
     \item Cyclomatic Complexity v(g)total $\longrightarrow$ used to show the total number of paths that are available on a program. The more paths there are, the higher the complexity.
@@ -283,7 +284,7 @@ Project-level metrics provide useful insight for the quality of the codebase as 
     \includegraphics[scale=0.7]{images/class_level.png}
 \end{center}
 
-Forgetting to write Unit tests for a new class is a fairly easy mistake to make. This mistake was made following the creation of BlockHandler.java in Sprint 2. This metric makes it easy to see \emph{where} there is a lack of test coverage, which proved to be useful. It may be the case that we never realised the missing test file had we only used project-level metrics. It is worth noting, however, that 100\% test coverage isn't always desirable nor achievable. Some methods can be extremely difficult to Unit test. Other methods --- such as `getters and setters' --- are arguably not worth testing in the first place.
+Forgetting to write Unit tests for a new class is a fairly easy mistake to make. This mistake was made following the creation of BlockHandler.java in Sprint 2. This metric makes it easy to see \emph{where} there is a lack of test coverage, which proved to be useful. It may be the case that we would have never realised that there wes a missing test file had we only used project-level metrics. It is worth noting, however, that 100\% test coverage isn't always desirable nor achievable. Some methods can be extremely difficult to Unit test. Other methods --- such as `getters and setters' --- are arguably not worth testing in the first place.
 
 \section{Review Process}
 
@@ -301,7 +302,7 @@ In the retrospective each group member had to answer three questions:
 
 One takeaway from the first Retrospective was that the team liked the format of the Trello board and deemed it to be intuitive. Members found it easy to know what they needed to do and liked how the Metrics spreadsheet link was available on the Trello page. Thus, it was decided that we would continue to use coloured labels for our tasks. \\
 
-The second takeaway was that we perhaps didn't include enough development work for the first story. The state of the game at the end of Sprint one was a simple game window, which doesn't leave much to QA. Despite the lack of work to QA, we still had to follow the same processes which made us feel that we weren't very efficient with our time. Looking back at the Metrics, it is evident that while we made did well at following our processes, there wasn't code overall. As a result, we concluded that for the next Story/Sprint we would include more work which would result in less context-switching and greater efficiency.
+The second takeaway was that we perhaps didn't include enough development work for the first story. The state of the game at the end of Sprint one was a simple game window, which doesn't leave much to QA. Despite the lack of work to QA, we still had to follow the same processes which made us feel that we weren't being very efficient with our time. Looking back at the Metrics, it is evident that while we may have been successful at following our processes, there wasn't much code/functionality to be assessed overall. As a result, we concluded that for the next Story/Sprint we would include more work which would result in less context-switching and greater efficiency.
 
 \subsubsection{Formal Technical Review}
 
@@ -313,8 +314,175 @@ We used this meeting as an opportunity to discuss the results of our metrics thu
 
 \subsubsection{Code Reviews}
 
-One of the advantages of pair programming is the ability to have two sets of eyes look at a piece of code. It is often the case that one developer will spot an error that the other is blind to, and vice-versa. The idea behind code reviews is similar, it is an opportunity to assess the quality of production code on a low level. GitHub provides a useful `comment' feature that makes this process very straight forward. 
+One of the advantages of pair programming is the ability to have two sets of eyes look at a piece of code. It is often the case that one developer will spot an error that the other is blind to, or vice-versa. The idea behind code reviews is similar, it is an opportunity to assess the quality of production code on a low level. GitHub provides a useful `comment' feature that makes this process very straight forward: 
 
+\begin{center}
+    \includegraphics[scale=0.3]{images/code_review.png}
+\end{center}
+
+In this instance, the code reviewer noticed the lack of JavaDocs in this class, and gave the feedback where the JavaDocs were missing. 
+
+\newpage
+
+\section{Testing}
+
+We used a combination of black-box testing and white-box testing in our project. Black-box testing is when the tester doesn't know the internals/workings of the software they are testing, White-box testing is when they do.
+
+\subsection{Black-Box testing}
+
+The two types of Black-box testing we used were: acceptance testing and exploratory testing. \\
+
+\emph{Acceptance} testing entails iterating through the project requirements, verifying that each one is met. For example, one requirement is: `The remaining time should be available at the top of the screen.' The tester will check the top of the screen to make sure that this text is present, and check the box, moving on to the next requirement. This testing method is essential at gauging the overall acceptability of the product from a requirements standpoint. The tester can't conclude that a product is acceptable unless acceptance testing has been undertaken. With that said, acceptance testing alone isn't sufficient at assessing the quality of a product. It is impossible to predict every flow in the requirements phase, and there is the possibility that a defect exists which has nothing to do with the requirements. We conducted \emph{exploratory} testing to counter-act this problem.\\
+
+Exploratory testing requires the tester to \emph{explore} different courses of action to find any unwarranted behaviour. In practice, this entails trying different things out and occasionally being unconventional. This testing method came in handy in story two, where there was a recurring situation that was evaluated to be a defect/bug. On occasion, blocks would appear only partially on screen because there was an error in the method that calculated a random position for the block.
+
+\subsubsection{Defect Management}
+
+We decided that the best way to deal with defects would be to post it on the Trello board, specifying the steps required to \emph{reproduce} this defect:
+
+\begin{center}
+    \includegraphics[scale=0.5]{images/defect.png}
+\end{center}
+
+In this scenario, the steps to reproduce were rather simple; in a larger application the steps are likely to be more complicated.
+
+\subsection{White-Box Testing}
+
+\subsubsection{The Problem}
+
+Since the developer knows best the inner workings of the software, it makes the most sense that white-box testing be done by them. The two main methods of testing used by developers are: unit testing and integration testing. Unit testing tests the inner-workings and logic of a class in isolation, whereas integration tests use the components as a whole, making sure that everything works together. In the context of a game, an integration test would involve actually launching the game window, and testing the information that is present on the screen. This is incredibly difficult to do, and to do so effectively would require the developer to assert images on the screen - something which is by no means straight-forward. \\
+
+Taking this on board, we decided to avoid writing integration tests and to focus on unit tests instead. However, writing unit tests for games brings its own set of challenges. One might want to test a class that requires a game window:
+
+\begin{minted}{java}
+ /**
+     * Constructor that calls createFrame to set frame settings
+     * @param title Title of the game
+     * @param game game instance
+     */
+    public Window(String title, Game game) {
+
+        frame = createFrame(title);
+        frame.add(game);
+        game.start();
+    }
+\end{minted}
+
+The Window constructor takes a Game object as its parameter. The Game object extends Canvas.java. Therefore using the game object in a unit test would launch an actual game window. This defeats the purpose of unit tests, which are supposed to test the logic in isolation from the main flow. Ideally, unit tests would be runnable on a non-graphical server.\\
+
+Games also often use extensive Graphics classes for rendering. This is the case for our HUD class:
+\newpage
+
+\begin{minted}[linenos,tabsize=2,breaklines]{java}
+    /**
+     * Renders timer and score onto the screen
+     * @param g Graphics object
+     * @see Constants to configure HUD variables
+     */
+    public void render(Graphics g) {
+        //set text colour, size and font
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("TimesRoman", Font.BOLD, Constants.FONT_SIZE));
+
+        // draw timer
+        g.drawString(Constants.TIME_REMAINING + getTimeRemaining(), Constants.TIMER_X, Constants.TIMER_Y);
+
+        // draw score
+        g.drawString(Constants.SCORE + handler.getNumBlocksKilled(), Constants.SCORE_X, Constants.SCORE_Y);
+    }
+\end{minted}
+
+Testing the HUD render method requires a Graphics instance, which is an abstract class. To test this method using a real Graphics object one would have to implement dozens of it's methods within the test, which is nonsensical. Thus, it seems to be the case that Dev testing games brings its fair share of challenges. Games contain methods that use extensive dependencies that make testing difficult. The solution is to \emph{mock} these objects.
+
+\subsubsection{The Solution}
+The reason we used Maven (build system) was to use a unit testing framework called \emph{Mockito}. Mockito works by creating dummy implementations of complex dependancies, allowing you to focus on just your code. Here is an example where we tested the Window class by mocking the Game object:
+
+\newpage
+
+\begin{minted}[linenos,tabsize=2,breaklines]{java}
+public class WindowTest {
+
+    @Mock
+    Game game;
+
+    @Mock
+    Jframe frame;
+
+    Window window;
+
+    @Before
+    public void initMocks() {
+        MockitoAnnotations.initMocks(this);
+        window = new Window(Constants.GAME_NAME, game);
+    }
+
+    @Test
+    public void testWindowTitle() {
+        assertEquals(window.frame.getTitle(), Constants.GAME_NAME);
+        assertEquals(window.frame.getDefaultCloseOperation(), JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Test
+    public void testWindowDimensions() {
+        Dimension dimension = new Dimension(Constants.INITIAL_WIDTH, Constants.INITIAL_HEIGHT);
+        assertEquals(window.frame.getSize(), dimension);
+    }
+
+    @Test
+    public void testWindowNotResizable() {
+        assertFalse(window.frame.isResizable());
+    }
+
+    @Test
+    public void testWindowCloseOperation() {
+        assertEquals(window.frame.getDefaultCloseOperation(), JFrame.EXIT_ON_CLOSE);
+    }
+    @Test
+    public void testWindowVisibility() {
+        assertTrue(window.frame.isVisible());
+    }
+}
+\end{minted}
+
+This allows us to test that the properties are set without turning our unit test into an integration test. We used the same approach for testing the HUD:
+
+\begin{minted}[linenos,tabsize=2,breaklines]{java}
+public class HudTest {
+
+    @Mock
+    Graphics g;
+
+    private HUD hud;
+
+    @Before
+    public void initMocks() {
+        BlockHandler handler = new BlockHandler();
+        hud = new HUD(handler);
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testHudRendered() {
+        hud.render(g);
+        verify(g).setColor(Color.BLACK);
+        verify(g).setFont(new Font("TimesRoman", Font.BOLD, Constants.FONT_SIZE));
+    }
+}
+\end{minted}
+
+Because we mocked the Graphics object, we didn't have to implement all of its methods, and we were still able to verify some of the behaviour of the Graphics object. In this case, we were able to verify that the Graphics object inside the HUD did call the methods it were expected to call.
+
+\section{Process Considerations}
+
+The Google Java Style Guide is quite extensive and there are some notable rule-breaking in our code. For example, Google suggest avoiding wildcard imports, something which is present in our code (Intellij does it automatically). Having said this, we did follow the majority of the conventions; our class names all begin with a capital letter and our constant names are all upper-case. We feel that we have followed the most important of the conventions, and that the quality of the code is of a satisfactory level. \\
+
+As for our more general, project-level processes, we feel that we did well to stick to the plan considering the limitations we faced. Although the project was a small one, we managed to create a working game, sticking to our QA plan throughout. \\
+
+As a whole, the project has been a successful one. If we were to work together again, we would likely create larger stories and use metrics that are more likely to identify problems. More class-level metrics and maybe even some method-level metrics would be useful in achieving this.
+
+\section{Conclusion}
+
+This project involved creating a game called `Shoot The Block' where the objective is to click on as many square blocks as possible in the allotted time period. Our overall approach was heavily influenced by the Agile methodology. Breaking the work up into Sprints/Stories provided structure and allowed for periodic feedback to be given via reviews and retrospectives. We formed a strict QA plan which formed the basis for how we structured our Sprints. The plan involved a range of testing strategies which helped to ensure a good level of product quality, and in some cases identify problems with the software. Code metrics were collected regularly, which provided insight as to where and how the software was lacking in quality. The overall result is a well tested game that was enjoyable to make.
 
 
 \end{document}
