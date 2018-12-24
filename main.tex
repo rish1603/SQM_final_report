@@ -29,7 +29,7 @@
 
 \center 
 \textsc{\LARGE University of Nottingham}\\[1.5cm]
-\includegraphics[scale=0.4]{uon.jpg}\\[1cm]
+\includegraphics[scale=0.4]{images/uon.jpg}\\[1cm]
 \textsc{\Large Software Quality Assurance}\\[0.5cm]
 \textsc{\large G53SQM}\\[0.5cm]
 
@@ -121,7 +121,7 @@ Agile's most natural form involves two-week sprint cycles with more than one sto
 
  \subsection{The Processes and their Purposes}
  \vspace{0.3cm}
-\noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{processes.png}}
+\noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/processes.png}}
 
 The above flow represents a whole Sprint, or Story. 
 
@@ -148,18 +148,19 @@ The above flow represents a whole Sprint, or Story.
  We will use Trello as our main project-management software. Trello will contain all of the tasks and there should be coloured labels that make it clear which team member each task is intended for. Trello is an intuitive tool that all group members have experience with. Trello can be used to store resource, such as the process flow diagram given above. The metrics will be recorded using an IDE but stored in a spreadsheet - preferably Google Sheets for optimal accessibility. This spreadsheet can be linked to Trello so that all relevant resources can be in one place. As for our Version Control System (VCS), we will use GitHub - mainly due to its familiarity.
  
 \subsection{Standards and Practices}
-We will try to adhere to the \underline{\href{https://google.github.io/styleguide/javaguide.html}{Google Java Style Guide}}. This coding convention lays out several good and bad practices including those which relate to: class naming, variable naming and brace usage. 
+\label{practices}
+We will try to adhere to the \underline{\href{https://google.github.io/styleguide/javaguide.html}{Google Java Style Guide}}. This coding convention lays out several good and bad practices including those which relate to: constants usage, class naming, variable namingm and brace usage. The style guide also offers some advice on formatting \emph{JavaDocs}. We will aim to have JavaDocs on every method --- regardless of complexity --- as doing so can greatly enhance readability.
 \section{Project Management Tool Usage}
 
 We used Trello for much of our information storage and communication. We liked the idea of having one web-page which would act as a central hub for the project. The following page contains a screenshot of our Trello board, post project. Notice how the layout of each story closely mirrors the project process-flow diagram included earlier in this report.
 
 % \includegraphics[scale=0.6]{trello1.png}
-\noindent\makebox[\textwidth]{\includegraphics[scale=0.7]{trello1.png}}
+\noindent\makebox[\textwidth]{\includegraphics[scale=0.7]{images/trello1.png}}
 
 The tickets were colour-coded in a way as to make it obvious who the task was intended for. Here is the colour key for these labels:
 
 \begin{center}
-    \includegraphics{trello2.png}
+    \includegraphics{images/trello2.png}
 \end{center}
 
 \section{Requirements}
@@ -189,19 +190,19 @@ In addition to these generic requirements, we also included more specific story-
 \subsection{Story 1}
 
     \begin{center}
-        \includegraphics[scale=0.9]{story1}
+        \includegraphics[scale=0.9]{images/story1}
     \end{center}
 
 \subsection{Story 2}
 
     \begin{center}
-        \includegraphics[scale=0.8]{story2}
+        \includegraphics[scale=0.8]{images/story2}
     \end{center}
 
 \subsection{Story 3}
 
     \begin{center}
-        \includegraphics[scale=0.8]{story3}
+        \includegraphics[scale=0.8]{images/story3}
     \end{center}
     
     
@@ -240,6 +241,79 @@ The pom.xml is a Maven build file. Maven is similar to Gradle - it is a build sy
 Our metrics were updated on a continual basis. Most of the metrics we created were project-level i.e. they looked at all files in the project as a whole rather than individual files. Metrics were recorded towards the end of the Sprint, but before the Retrospective to allow us to discuss the data.
 
 \subsection{Project-level Metrics}
+
+\vspace{0.3cm}
+\begin{center}
+    \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/Project_level.png}}
+\end{center}
+
+\begin{itemize}
+    \item Lines of Product Code $\longrightarrow$ The number of lines of Java game code. This figure does not any code from the test classes or build scripts. We included this because it provides a rough estimate for how large a story is - at least in terms of features.
+    \item Lines of Test code $\longrightarrow$ The number of lines of JUnit code. We included this statistic to gauge how much effort is being spent on unit testing throughout the project.
+    \item Line Coverage $\longrightarrow$ The percentage of lines that are executed during a complete run of the game. If the value is low, it suggests that there are a lot of methods that exist in the application which aren't being executed - and therefore should be omitted. 
+    \item Methods with JavaDocs $\longrightarrow$ We comitted to include JavaDocs on every method in our \underline{\hyperref[practices]{plan}}. This metric exists to alert us if this commitment is ever avoided.
+    \item Cyclomatic Complexity v(g)total $\longrightarrow$ used to show the total number of paths that are available on a program. The more paths there are, the higher the complexity.
+    \item No. JUnit assertions $\longrightarrow$ This metric actually shows the number of test \emph{methods} with assertions rather than simply the number of assertions. This is another metric that allows us to observe overall test coverage.
+\end{itemize}
+\newpage
+
+Using this data, we were able to create several different charts that would update themselves over time. The metrics we decided to create charts for were: Line Coverage, JavaDoc Coverage, Complexity and JUnit Assertions.
+
+\vspace{0.3cm}
+
+\begin{center}
+    \noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{images/charts.png}}
+\end{center}
+
+\newpage
+
+The second Sprint was by far the most important Sprint to observe metrics purely because there were only three Sprints altogether. This is one of the reasons why we decided to hold the Formal Technical Review at the end of the second Sprint. The metrics charts above varied in their usefulness --- two of these charts prompted us to make a change/improvement while the other two were discussed but not acted upon.
+
+\begin{itemize}
+    \item Tracking line coverage allowed us to find a couple of methods that were not ever being called. We saw that at the end of the second Sprint the coverage wasn't only far from 100\%, but had also decreased. It was clear that there was a fair chunk of code that wasn't being run. Luckily for us, Intellij's `Run with Coverage' option shows the methods that did and did not run. Using this data, we were able to remove the unused methods which drastically improved overall coverage for Sprint 3. We are pleased with the 94\% coverage we managed to achieve. It is worth noting that 100\% coverage isn't necessarily desirable as some code is only meant to be run when something goes wrong. In this respect, line coverage as a metric can be slightly misleading.
+    \item Tracking the percentage of methods with JavaDocs allowed us to observe a sharp reduction in JavaDoc coverage in Sprint 2. This was flagged in the FTR and was an easy problem to fix. 
+    \item v(g)total is a metric that we concluded to be less than useful. This is because there is a natural correlation between the number of lines of code and the v(g)total. Both of these metrics can be misleading since each Story is bound to be different in terms of how much work/coding is required. We found that the tasks for Stories two and three were more complex than the first. It would have been more useful to record the complexity on a method-level rather than a project-level. This would allow us to see methods that are getting too complex and the action would be to break the method down. 
+    \item The JUnit assertion chart showed that we did increase our coverage over time, but once again there were a couple of drawbacks of this method. The first drawback has already been mentioned - the metric counts the number of methods with assertions rather than simply the number of assertions. We had test methods which had more than one assertion which reduces the overall accuracy of the chart. It could be argued that an appropriate action would be to only have one assert per method; however, this would entail adapting our code based on the specific workings of one metric which is undesirable overall.
+\end{itemize}
+
+\subsection{Class-level Metrics}
+Project-level metrics provide useful insight for the quality of the codebase as a whole, but they can often fail to identify smaller, lower-level problems. Considering this, we decided to include one class-level metric, namely the \emph{test coverage} for each class. 
+
+\begin{center}
+    \includegraphics[scale=0.7]{images/class_level.png}
+\end{center}
+
+Forgetting to write Unit tests for a new class is a fairly easy mistake to make. This mistake was made following the creation of BlockHandler.java in Sprint 2. This metric makes it easy to see \emph{where} there is a lack of test coverage, which proved to be useful. It may be the case that we never realised the missing test file had we only used project-level metrics. It is worth noting, however, that 100\% test coverage isn't always desirable nor achievable. Some methods can be extremely difficult to Unit test. Other methods --- such as `getters and setters' --- are arguably not worth testing in the first place.
+
+\section{Review Process}
+
+Reviews occurred at the end of each Sprint and either took the form of a \emph{Retrospective} or in one case a \emph{Formal Technical Review}. FTR's offer an opportunity to evaluate whether or not the product quality sits at an acceptable level, and to discuss strategies for getting to that level if any aspects of the product are unsatisfactory. Retrospectives are less about the product and more about team dynamic.
+
+\subsection{Retrospectives}
+
+In the retrospective each group member had to answer three questions:
+
+\begin{itemize}
+\item What went well?
+\item What didn’t go so well?
+\item What can we do to do better next time?
+\end{itemize}
+
+One takeaway from the first Retrospective was that the team liked the format of the Trello board and deemed it to be intuitive. Members found it easy to know what they needed to do and liked how the Metrics spreadsheet link was available on the Trello page. Thus, it was decided that we would continue to use coloured labels for our tasks. \\
+
+The second takeaway was that we perhaps didn't include enough development work for the first story. The state of the game at the end of Sprint one was a simple game window, which doesn't leave much to QA. Despite the lack of work to QA, we still had to follow the same processes which made us feel that we weren't very efficient with our time. Looking back at the Metrics, it is evident that while we made did well at following our processes, there wasn't code overall. As a result, we concluded that for the next Story/Sprint we would include more work which would result in less context-switching and greater efficiency.
+
+\subsubsection{Formal Technical Review}
+
+The FTR was different in several ways. For one, the FTR involved a `show and tell' which involved showing the game to two reviewers who were tasked with assessing the quality of the game thus far. To do this, the reviewers referred to all of the existing requirements on hand, checking them off one by one if they were judged to be acceptable. \\
+
+During this meeting, one reviewer noticed that occasionally blocks could spawn on top of each other due to the random nature of their positioning. This meant that in some situations the user could destroy both blocks with one click, scoring two points in the process. It was never considered whether or not this game mechanic should exist and if so should exist as a non-functional requirement. We decided that we liked the mechanic and that it should be considered a \emph{feature} rather than a \emph{bug}. \\
+
+We used this meeting as an opportunity to discuss the results of our metrics thus far. We found that we weren't hitting our goal of having JavaDocs on every method and that we had some methods that weren't doing anything at all. Thus, we found ourselves in a situation where all of the requirements were met, but the product lacked certain quality assurances. The reviewers were therefore unsure as to whether the product should be accepted completely or \emph{provisionally}. We decided to err on the side of caution and accept the product provisionally, citing the problems indicated by the metrics as those that needed to be solved.
+
+\subsubsection{Code Reviews}
+
+One of the advantages of pair programming is the ability to have two sets of eyes look at a piece of code. It is often the case that one developer will spot an error that the other is blind to, and vice-versa. The idea behind code reviews is similar, it is an opportunity to assess the quality of production code on a low level. GitHub provides a useful `comment' feature that makes this process very straight forward. 
 
 
 
